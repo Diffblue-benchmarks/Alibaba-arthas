@@ -1,6 +1,19 @@
 cbmcArguments:
   # Do not generate coverage comments on generated tests.
   java-generate-no-comments: true
+units:
+  # Target Coverage: Unknown %
+  - target:
+      - dir: common/target/classes
+        file: com/taobao/arthas/common/AnsiLog.class
+        sourceDir: common/src/main/java
+        sourceFile: com/taobao/arthas/common/AnsiLog.java
+      # Child of AnsiLog.class
+      # Child Coverage: Unknown %
+      - dir: common/target/classes
+        file: com/taobao/arthas/common/OSUtils.class
+        sourceDir: common/src/main/java
+        sourceFile: com/taobao/arthas/common/OSUtils.java
 phases:
   -
   #Phase 0 PRETTY AND SIMPLE - Simple models, quick cover, pretty Tests, Do Not Test Private Method Directly
@@ -36,7 +49,7 @@ phases:
       not_analyzed: null
   -
   #Phase 1 PRETTY AND COMPLEX - Standard models, longer run time, pretty tests, Do Not Test Private Method Directly
-    timeout: 450
+    timeout: 150
     cbmcArguments:
       # Use the standard models library
       classpath: '/tools/cbmc/models.jar:.'
@@ -86,7 +99,7 @@ phases:
       unwind: 1
   -
   #Phase 3 Complex and Private Directly
-    timeout: 300
+    timeout: 150
     cbmcArguments:
       # Use the standard models library.
       classpath: '/tools/cbmc/models.jar:.'
@@ -103,7 +116,8 @@ phases:
       # Set an upper bound on loop unwinding.
       unwind: 3
 
-  - #Phase 4 COMPLEX - Standard models, longer run time, Do Not Test Private Method Directly
+  - 
+  #Phase 4 COMPLEX - Standard models, longer run time, Do Not Test Private Method Directly
     timeout: 300
     cbmcArguments:
       # Use the standard models library
@@ -162,12 +176,12 @@ phases:
       # Constrain the size of arrays created in the analyzed code.
       java-max-vla-length:  192
       # Maximum allowed length for an array passed as test input.
-      max-nondet-array-length: 150
+      max-nondet-array-length: 60
       # Bound the length of input strings.
-      max-nondet-string-length: 150
+      max-nondet-string-length: 60
       # Add constraint that strings are printable
       string-printable: false
       # Make implicit runtime exceptions explicit.
-      throw-runtime-exceptions: false
+      throw-runtime-exceptions: true
       # Set an upper bound on loop unwinding.
       unwind: 6
