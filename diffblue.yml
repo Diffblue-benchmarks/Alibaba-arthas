@@ -44,6 +44,7 @@ phases:
       # instrument the file as opposed to the function only
       cover-only: file
     # If the logs contains output of the following then proceed to phase X
+      string-input-value: ["foo", "bar", "baz"]
     nextPhase:
       # If the function is not analysable then do not pass onto the next phase
       not_analyzed: null
