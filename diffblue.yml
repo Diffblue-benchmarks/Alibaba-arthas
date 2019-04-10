@@ -25,7 +25,7 @@ phases:
       # Set an upper bound on loop unwinding.
       string-input-value: ["foo", "bar", "baz"]
       smart-harness: 'simplest-constructor-and-nondet'
-      'paths': 'lifo'
+      'paths' : 'lifo'
       unwind: 1
       # Do not test any methods that have the specified access level.
       do-not-test-methods-with-access: [ private ]
