@@ -1,0 +1,124 @@
+# Tested on Deeptest release 1.12.0
+cbmcArguments:
+  java-generate-no-comments: true
+phases:
+-
+  timeout: 60
+  cbmcArguments:
+    max-nondet-array-length: 10
+    unwind: 1
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 10
+    unwind: 1
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 20
+    unwind: 2
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 20
+    unwind: 2
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 4
+    load-containing-class-only: true
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 50
+    max-nondet-string-length: 50
+    unwind: 4
+    load-containing-class-only: true
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 130
+    max-nondet-string-length: 110
+    unwind: 10
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 300
+    max-nondet-string-length: 100
+    unwind: 10
+units:
+  # Target Coverage: Unknown %
+  - target:
+    - dir: core/target/classes
+      file: com/taobao/arthas/core/util/matcher/WildcardMatcher.class
+      sourceDir: core/src/main/java
+      sourceFile: com/taobao/arthas/core/util/matcher/WildcardMatcher.java
+    # Child of WildcardMatcher.class
+    # Child Coverage: Unknown %
+    - dir: core/target/classes
+      file: com/taobao/arthas/core/util/matcher/Matcher.class
+      sourceDir: core/src/main/java
+      sourceFile: com/taobao/arthas/core/util/matcher/Matcher.java
+  # Target Coverage: Unknown %
+  - target:
+    - dir: core/target/classes
+      file: com/taobao/arthas/core/view/ObjectView.class
+      sourceDir: core/src/main/java
+      sourceFile: com/taobao/arthas/core/view/ObjectView.java
+    # Child of ObjectView.class
+    # Child Coverage: Unknown %
+    - dir: core/target/classes
+      file: com/taobao/arthas/core/GlobalOptions.class
+      sourceDir: core/src/main/java
+      sourceFile: com/taobao/arthas/core/GlobalOptions.java
+    # Child of ObjectView.class
+    # Child Coverage: Unknown %
+    - dir: core/target/classes
+      file: com/taobao/arthas/core/view/View.class
+      sourceDir: core/src/main/java
+      sourceFile: com/taobao/arthas/core/view/View.java
+  # Target Coverage: Unknown %
+  - target:
+    - dir: core/target/classes
+      file: com/taobao/arthas/core/util/TokenUtils.class
+      sourceDir: core/src/main/java
+      sourceFile: com/taobao/arthas/core/util/TokenUtils.java
+    # Child of TokenUtils.class
+    # Child Coverage: Unknown %
+    - dir: core/target/classes
+      file: com/taobao/arthas/core/shell/cli/CliToken.class
+      sourceDir: core/src/main/java
+      sourceFile: com/taobao/arthas/core/shell/cli/CliToken.java
