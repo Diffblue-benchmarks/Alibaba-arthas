@@ -170,7 +170,7 @@ phases:
       unwind: 3
 units:
   - target:
-      - dir: common/src/main/java
-        file: com/taobao/arthas/common/IOUtils.java
+      - dir: common/target/classes
+        file: com/taobao/arthas/common/IOUtils.class
         sourceDir: common/src/main/java
         sourceFile: com/taobao/arthas/common/IOUtils.java
