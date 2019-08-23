@@ -12,6 +12,7 @@ cbmcArguments:
   java-generate-no-comments: true
   inline-into-assertion: true
   inline-function-arguments: true
+  java-version: 6
 phases:
   #New CX Phase 0
   - timeout: 150
